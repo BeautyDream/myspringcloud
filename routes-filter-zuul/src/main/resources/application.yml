@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: routes-filter-zuul
+server:
+  port: 8085
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+
+zuul:
+  routes:
+    service-feign:
+      path: /feign/**
+      serviceId: consumer-feign
+    service-ribbon:
+      path: /ribbon/**
+      serviceId: consumer-ribbon
